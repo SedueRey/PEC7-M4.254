@@ -17,6 +17,8 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { AppRoutesModule } from './app-routes.module';
 
+import { AuthGuard } from './guards/auth.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,12 @@ import { AppRoutesModule } from './app-routes.module';
     HttpClientModule,
     AppRoutesModule
   ],
-  providers: [WineService, UserService, UserStoreService],
+  providers: [
+    WineService,
+    UserService,
+    UserStoreService,
+    AuthGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
