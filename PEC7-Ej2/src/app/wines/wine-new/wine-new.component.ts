@@ -25,7 +25,7 @@ export class WineNewComponent {
     this.wine = this.formBuilder.group({
       name: ['', [Validators.required, wineNameValidator()]],
       price: [null, [Validators.required, Validators.min(1)]],
-      imageUrl: ['', [Validators.pattern("^http(s?)://[a-zA-Z0-9-.]+.[a-zA-Z]{2,3}(/S*)?$")]], // Importante (Validators.required quitado para comprobar el correcto funcionamiento del customPipe creado)
+      imageUrl: ['', [Validators.required, Validators.pattern("^http(s?)://[a-zA-Z0-9-.]+.[a-zA-Z]{2,3}(/S*)?$")]],
       isOnSale: [false]
     });
   }
