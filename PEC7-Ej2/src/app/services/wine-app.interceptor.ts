@@ -17,8 +17,8 @@ export class WineAppInterceptor implements HttpInterceptor {
       console.log('INTERCEPTING, HAS TOKEN');
       const authReq = req.clone({
         headers: req.headers.set(
-          'X-AUTH-HEADER',
-          this.userStore.token
+          'Authorization',
+          `Bearer: ${this.userStore.token}`
         )
       });
       console.log('Making an authorized request');

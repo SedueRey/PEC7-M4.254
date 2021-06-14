@@ -8,10 +8,14 @@ import { WineListComponent } from './wines/wine-list/wine-list.component';
 import { WineNewComponent } from './wines/wine-new/wine-new.component';
 import { WineDetailComponent } from './wines/wine-detail/wine-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { WineService } from './services/wine.service';
+import { UserService } from './services/user.service';
+import { UserStoreService } from './services/user-store.service';
 
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
+import { AppRoutesModule } from './app-routes.module';
 
 @NgModule({
   declarations: [
@@ -27,9 +31,10 @@ import { RegisterComponent } from './user/register/register.component';
     BrowserModule,
     FormsModule, // NgModel
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutesModule
   ],
-  providers: [WineService],
+  providers: [WineService, UserService, UserStoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
