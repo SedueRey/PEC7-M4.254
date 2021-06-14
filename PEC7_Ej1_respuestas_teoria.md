@@ -27,9 +27,9 @@ Los Guards en Angular son métodos que se ejecutan antes de cargar una ruta y de
 
 ## e) ¿Qué es la carga Lazy de los módulos de Angular? ¿Cómo se configura en Angular la carga Lazy? ( https://angular.io/guide/lazy-loading-ngmodules )
 
-La carga asíncrona o lazy de componentes / módulos, tanto en Angular como en ReactJS y VueJS es la forma de cargarlos en el momento de su uso, sin estar añadido con el resto de los componentes en la aplicación transpilada. Esto permite que la primera carga del JS de cualquier SPA ocupe menos y tarde, por tanto, menos en cargar al usuario final.
+La carga asíncrona o lazy de módulos, tanto en Angular como en ReactJS y VueJS es la forma de cargarlos en el momento de su uso, sin estar añadido con el resto de la aplicación transpilada. Esto permite que la primera carga del JS de cualquier SPA ocupe menos y tarde, por tanto, menos en cargar al usuario final.
 
-En Angular, de la misma forma que en VueJS, se cargan asíncronamente los módulos o componentes con una _arrow_ _function_ que, cuando se ejecuta, realiza el import del módulo o componente deseado. Esto hace que se llame al JS transpilado y se cargue al finalizar ésta. 
+En Angular, de la misma forma que en VueJS, se cargan asíncronamente los módulos (componentes en el caso de Vue) con una _arrow_ _function_ que, cuando se ejecuta, realiza el import del módulo deseado. Esto hace que se llame al JS transpilado y se cargue al finalizar ésta. 
 
 Del ejemplo de la documentación de Angular:
 
