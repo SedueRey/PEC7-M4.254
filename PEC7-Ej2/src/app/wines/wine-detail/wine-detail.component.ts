@@ -3,6 +3,8 @@ import { Wine } from "../../models/wine";
 import { WineService } from 'src/app/services/wine.service';
 import { ActivatedRoute } from '@angular/router';
 
+import { Observable, Subject } from 'rxjs';
+
 @Component({
   selector: 'app-wine-detail',
   templateUrl: './wine-detail.component.html',
@@ -18,7 +20,8 @@ export class WineDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const wineId = parseInt(this.route.snapshot.paramMap.get('id'), 10);
-    this.wineService.getWines().subscribe(wineList => this.wine = wineList.find(el => el.id == wineId));
+    console.log(wineId);
+    this.wineService.getWines('').subscribe(wineList => this.wine = wineList.find(el => el.id == wineId));
   }
 
 }

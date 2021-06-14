@@ -15,7 +15,8 @@ export class UserStoreService {
   }
 
   isLoggedIn() {
-    return this.token != null;
+    const sessionToken = sessionStorage.getItem('wine-token');
+    return (sessionToken != null) || (this.token != null);
   }
 
 }

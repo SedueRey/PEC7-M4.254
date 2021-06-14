@@ -18,6 +18,7 @@ import { RegisterComponent } from './user/register/register.component';
 import { AppRoutesModule } from './app-routes.module';
 
 import { AuthGuard } from './guards/auth.guard';
+import { WineNewDeactivateGuard } from './guards/wine-new-deactivate.guard';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AuthGuard } from './guards/auth.guard';
     UserService,
     UserStoreService,
     AuthGuard,
+    WineNewDeactivateGuard,
   ],
   bootstrap: [AppComponent]
 })

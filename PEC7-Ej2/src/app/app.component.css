@@ -1,7 +1,8 @@
 * {
-    margin: 0; 
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .content {
@@ -10,4 +11,33 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.menu {
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.menu ul {
+  list-style: none;
+}
+
+.menu ul li{
+  display: inline-block;
+}
+
+.menu ul li a{
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  color: #555;
+}
+
+.menu ul li a.active{
+  background: #A00000;
+  color: #FFF;
+}
+
+.menu ul li a:hover{
+  background: #f0f0f0;
+  color: #000;
 }

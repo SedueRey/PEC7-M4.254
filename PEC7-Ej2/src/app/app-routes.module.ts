@@ -8,12 +8,18 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 
 import { AuthGuard } from './guards/auth.guard';
+import { WineNewDeactivateGuard } from './guards/wine-new-deactivate.guard';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'wine/new', component: WineNewComponent, canActivate: [AuthGuard] },
+  {
+    path: 'wine/new',
+    component: WineNewComponent,
+    canActivate: [AuthGuard],
+    canDeactivate: [WineNewDeactivateGuard]
+  },
   { path: 'wine/list', component: WineListComponent },
   { path: 'wine/:id', component: WineDetailComponent },
   { path: '**', redirectTo: '/login' }

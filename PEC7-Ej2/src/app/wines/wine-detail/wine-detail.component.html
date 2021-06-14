@@ -1,5 +1,17 @@
-<div [ngClass]="{'item': wine, 'stock': wine.isOnSale}">
-  <img [src]="wine.imageUrl" alt="Botella de vino">
-  <p>{{wine.name}}</p>
+<div [ngClass]="{'item': wine}" *ngIf="wine">
+  <h1>{{wine.name}}</h1>
+  <img [src]="wine.imageUrl" [alt]="wine.name">
+  <p *ngIf="wine.description">{{wine.description}}</p>
+  <p *ngIf="wine.isOnSale; else elseBlock">You can buy it, we have stock</p>
+  <ng-template #elseBlock><p>Sold Out</p></ng-template>
   <p><span>{{wine.price}}</span> €</p>
+  <h2>Food pairing</h2>
+  <ul>
+    <li *ngFor="let food of wine.foodPairing">
+      <strong>{{food.name}}</strong><br>
+      {{food.kcal}}kcal<br>
+      <span *ngIf="food.vegan">It's vegan!!<br></span>
+      <span *ngIf="!food.glutten">without glutten<br></span>
+    </li>
+  </ul>
 </div>
