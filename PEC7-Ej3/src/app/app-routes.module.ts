@@ -1,31 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { WineNewComponent } from './wines/wine-new/wine-new.component';
-import { WineListComponent } from './wines/wine-list/wine-list.component';
-import { WineDetailComponent } from './wines/wine-detail/wine-detail.component';
-import { LoginComponent } from './user/login/login.component';
-import { RegisterComponent } from './user/register/register.component';
-
-import { AuthGuard } from './guards/auth.guard';
-import { WineNewDeactivateGuard } from './guards/wine-new-deactivate.guard';
-
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  {
-    path: 'wine/new',
-    component: WineNewComponent,
-    canActivate: [AuthGuard],
-    canDeactivate: [WineNewDeactivateGuard]
-  },
-  { path: 'wine/list', component: WineListComponent },
-  { path: 'wine/:id', component: WineDetailComponent },
-  { path: '**', redirectTo: '/login' }
+  { path: '', redirectTo: '/user/login', pathMatch: 'full' },
+  // { path: 'wine', loadChildren: 'wines/wine.module#WineModule' },
+  { path: 'wine', loadChildren: () => import('./wines/wine.module').then(m => m.WineModule) },
+  // { path: 'user', loadChildren: 'user/user.module#UserModule' },
+  { path: 'user', loadChildren: () => import( './user/user.module').then(m => m.UserModule) },
+  { path: '**', redirectTo: '/user/login' }
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes),],
+  imports: [
+    RouterModule.forRoot(appRoutes),
+  ],
   exports: [RouterModule],
 })
 

@@ -10,7 +10,7 @@ import { wineNameValidator } from "src/app/validators/wine-name.validator";
   styleUrls: ['./wine-new.component.css']
 })
 export class WineNewComponent {
-  
+
   @Output() private wineNew: EventEmitter<void> = new EventEmitter();
   public wine: FormGroup;
 
